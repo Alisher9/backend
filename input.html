@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var name, surname;
+        $("#submit").click(function(){
+          name=$("#name").val();
+          surname=$("#surname").val();
+          $.post("http://localhost:3000/input",{name: name,surname: surname}, function(data){
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form method="post" action="/">
+        <input type="text" name="name"><br>
+        <input type="text" name="surname"><br>
+        <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
